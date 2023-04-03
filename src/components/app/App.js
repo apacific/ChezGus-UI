@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './App.module.css';
 import Card from '../card/Card';
 import Modal from '../modal/Modal';
+import NavBar from '../navbar/NavBar';
 import Spinner from '../spinner/Spinner';
 
 const App = () => {
@@ -78,19 +79,22 @@ const App = () => {
   );
 
   return (
-    <div className={styles.container}>
-      {/* if loading is true, display the spinner component */}
-      {loading && <Spinner />}
-      {/* if apiError is true, display the Modal component */}
-      {apiError && <Modal message="Oops! Something went wrong." reset={() => setApiError(false)} />}
-      {/* run functions to create Card components */}
-      <div className={styles.row}>
-        {createProductCards()}
+    <>
+      <NavBar></NavBar>
+      <div className={styles.container}>
+        {/* if loading is true, display the spinner component */}
+        {loading && <Spinner />}
+        {/* if apiError is true, display the Modal component */}
+        {apiError && <Modal message="Oops! Something went wrong." reset={() => setApiError(false)} />}
+        {/* run functions to create Card components */}
+        <div className={styles.row}>
+          {createProductCards()}
+        </div>
+        <div className={styles.row}>
+          {createOrderCards()}
+        </div>
       </div>
-      <div className={styles.row}>
-        {createOrderCards()}
-      </div>
-    </div>
+    </>
   );
 }
 
