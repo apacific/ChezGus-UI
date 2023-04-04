@@ -58,12 +58,37 @@ const App = () => {
   }, []);
 
   // function to create a Card component for each product that displays the name, price, and description
-  const createProductCards = () => products.map(product => (
-    <Card className='card' key={product.id}>
+  const createFoodCards = () => products.filter(product => product.type==="food").map(product => (
+    <Card className='card' key={product.id} data-type={product.type}>
       <div className='container'>
         <h3>{product.name}</h3>
         <p>{product.description}</p>
         <p>${product.price}</p>
+        <button>order</button>
+      </div>
+    </Card>)
+  );
+
+  // function to create a Card component for each product that displays the name, price, and description
+  const createDessertCards = () => products.filter(product => product.type==="dessert").map(product => (
+    <Card className='card' key={product.id} data-type={product.type}>
+      <div className='container'>
+        <h3>{product.name}</h3>
+        <p>{product.description}</p>
+        <p>${product.price}</p>
+        <button>order</button>
+      </div>
+    </Card>)
+  );
+
+  // function to create a Card component for each product that displays the name, price, and description
+  const createBeverageCards = () => products.filter(product => product.type==="beverage").map(product => (
+    <Card className='card' key={product.id} data-type={product.type}>
+      <div className='container'>
+        <h3>{product.name}</h3>
+        <p>{product.description}</p>
+        <p>${product.price}</p>
+        <button>order</button>
       </div>
     </Card>)
   );
@@ -79,6 +104,7 @@ const App = () => {
     </Card>)
   );
 
+ 
   return (
     <>
       <NavBar></NavBar>
@@ -89,18 +115,34 @@ const App = () => {
         {apiError && <Modal message="Oops! Something went wrong." reset={() => setApiError(false)} />}
         {/* run functions to create Card components */}
         <Routes>
-          <Route path="/" element={<div className={styles.row}>
-          {createOrderCards()}
-        </div>}></Route>
-          <Route path="/food" element={<div className={styles.row}>
-          {createProductCards()}
-        </div>}></Route>
-          <Route path="/dessert" element={<div className={styles.row}>
-          {createProductCards()}
-        </div>}></Route>
-          <Route path="/beverages" element={<div className={styles.row}>
-          {createProductCards()}
-        </div>}></Route>
+          <Route
+            path="/"
+            element={
+              <div className={styles.row}>
+                {createOrderCards()}
+              </div>}>
+          </Route>
+          <Route
+            path="/food"
+            element={
+              <div className={styles.row}>
+                {createFoodCards()}
+              </div>}>
+          </Route>
+          <Route
+            path="/dessert"
+            element={
+              <div className={styles.row}>
+                {createDessertCards()}
+              </div>}>
+          </Route>
+          <Route
+            path="/beverages"
+            element={
+              <div className={styles.row}>
+                {createBeverageCards()}
+              </div>}>
+          </Route>
         </Routes>
       </div>
     </>

@@ -1,3 +1,4 @@
+
 .container {
   display: flex;
   flex-direction: row;
@@ -8,4 +9,12 @@
 .row {
   display: flex;
   flex-wrap: wrap;
+}
+
+button {
+  background-color: gray;
+  border-radius: .25rem;
+  color: white;
+  font-weight: bold;
+  padding: .75rem;
 }
