@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import styles from './App.module.css';
 import Card from '../card/Card';
 import Modal from '../modal/Modal';
@@ -87,12 +88,20 @@ const App = () => {
         {/* if apiError is true, display the Modal component */}
         {apiError && <Modal message="Oops! Something went wrong." reset={() => setApiError(false)} />}
         {/* run functions to create Card components */}
-        <div className={styles.row}>
-          {createProductCards()}
-        </div>
-        <div className={styles.row}>
+        <Routes>
+          <Route path="/" element={<div className={styles.row}>
           {createOrderCards()}
-        </div>
+        </div>}></Route>
+          <Route path="/food" element={<div className={styles.row}>
+          {createProductCards()}
+        </div>}></Route>
+          <Route path="/dessert" element={<div className={styles.row}>
+          {createProductCards()}
+        </div>}></Route>
+          <Route path="/beverages" element={<div className={styles.row}>
+          {createProductCards()}
+        </div>}></Route>
+        </Routes>
       </div>
     </>
   );

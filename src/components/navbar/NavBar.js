@@ -1,8 +1,10 @@
-import styles from './NavBar.module.css';
+import './NavBar.module.css';
 
 const NavBar = () => {
   return <nav className="nav">
-    <a href="/" className="site-title">the Gus Cafe</a>
+    <div className="site-title">
+      <a href="/">the Gus Cafe</a>
+    </div>
     <ul>
       <li>
         <a href="/food">
