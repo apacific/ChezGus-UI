@@ -4,7 +4,9 @@ import styles from './App.module.css';
 import Card from '../card/Card';
 import Modal from '../modal/Modal';
 import NavBar from '../navbar/NavBar';
+import Picture from '../../assets/images/sunset.jpg'
 import Spinner from '../spinner/Spinner';
+import Pizza from '../../assets/images/pizza.jpg'
 
 const App = () => {
   // state and update function for our products data
@@ -119,7 +121,7 @@ const App = () => {
             path="/"
             element={
               <div className={styles.row}>
-                {createOrderCards()}
+                <img src={Picture} alt='sunset' width="1100" height="1700"/>
               </div>}>
           </Route>
           <Route
