@@ -21,7 +21,7 @@ const App = () => {
   const toggleProductDetail = () => {
     setShowProductDetail(!showProductDetail)
   }
-  const imageURL = '../../';
+  const imageURL = '../';
   const imageSuffix = '.jpg';
   // useEffect Hook where we can run any code that has side-effects (like calls to a server)
   useEffect(() => {
@@ -69,11 +69,10 @@ const App = () => {
     <Card className='card' key={product.id} data-type={product.type}>
       <div className='container'>
         <h3>{product.name}</h3>
-        <p>{product.description}</p>
         <p>${product.price}</p>
         <Popup trigger={<button>details</button>} position="center center">
+          <div><img src={require(`../../${product.imageName}${imageSuffix}`)} width='188px' alt='product' /></div>
           <div>{product.description}</div>
-          <div><img src={`${imageURL}${product.imageName}${imageSuffix}`} width='188px' alt='product' /></div>
         </Popup>
       </div>
     </Card>)
