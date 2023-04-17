@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import Popup from 'reactjs-popup';
 import { Route, Routes } from 'react-router-dom';
 import styles from './App.module.css';
 import Card from '../card/Card';
 import Modal from '../modal/Modal';
 import NavBar from '../navbar/NavBar';
-import Picture from '../../assets/images/sunset.jpg'
+import Picture from '../../sunset.jpg';
 import Spinner from '../spinner/Spinner';
-import Pizza from '../../assets/images/pizza.jpg'
 
 const App = () => {
   // state and update function for our products data
@@ -17,7 +17,12 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   // state and update function for api errors to show error modal
   const [apiError, setApiError] = useState(false);
-
+  const [showProductDetail, setShowProductDetail] = useState(false);
+  const toggleProductDetail = () => {
+    setShowProductDetail(!showProductDetail)
+  }
+  const imageURL = '../../';
+  const imageSuffix = '.jpg';
   // useEffect Hook where we can run any code that has side-effects (like calls to a server)
   useEffect(() => {
     // define async function to fetch products and orders
@@ -66,7 +71,10 @@ const App = () => {
         <h3>{product.name}</h3>
         <p>{product.description}</p>
         <p>${product.price}</p>
-        <button>order</button>
+        <Popup trigger={<button>details</button>} position="center center">
+          <div>{product.description}</div>
+          <div><img src={`${imageURL}${product.imageName}${imageSuffix}`} width='188px' alt='product' /></div>
+        </Popup>
       </div>
     </Card>)
   );
@@ -78,19 +86,20 @@ const App = () => {
         <h3>{product.name}</h3>
         <p>{product.description}</p>
         <p>${product.price}</p>
-        <button>order</button>
+        <p>{product.productImageURL}</p>
+        <button onClick={toggleProductDetail}>OK</button>
       </div>
     </Card>)
   );
 
   // function to create a Card component for each product that displays the name, price, and description
   const createBeverageCards = () => products.filter(product => product.type==="beverage").map(product => (
-    <Card className='card' key={product.id} data-type={product.type}>
+    <Card className='card' key={product.id}>
       <div className='container'>
         <h3>{product.name}</h3>
         <p>{product.description}</p>
         <p>${product.price}</p>
-        <button>order</button>
+        <button>details</button>
       </div>
     </Card>)
   );
@@ -135,8 +144,8 @@ const App = () => {
             path="/dessert"
             element={
               <div className={styles.row}>
-                {createDessertCards()}
-              </div>}>
+              {createDessertCards()}
+            </div>}>
           </Route>
           <Route
             path="/beverages"
