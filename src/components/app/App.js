@@ -11,17 +11,10 @@ import Spinner from '../spinner/Spinner';
 const App = () => {
   // state and update function for our products data
   const [products, setProducts] = useState([]);
-  // state and update function for our orders data
-  const [orders, setOrders] = useState([]);
   // state and update function for when data is being fetched to display spinner
   const [loading, setLoading] = useState(false);
   // state and update function for api errors to show error modal
   const [apiError, setApiError] = useState(false);
-  const [showProductDetail, setShowProductDetail] = useState(false);
-  const toggleProductDetail = () => {
-    setShowProductDetail(!showProductDetail)
-  }
-  const imageURL = '../';
   const imageSuffix = '.jpg';
   // useEffect Hook where we can run any code that has side-effects (like calls to a server)
   useEffect(() => {
@@ -38,14 +31,10 @@ const App = () => {
         }
         // convert products response from JSON to JS
         const productData = await productResponse.json();
-        // convert orders response from JSON to JS
-        const orderData = await orderResponse.json();
         // set loading flag to false now that api call is completed
         setLoading(false);
         // add product data to state array
         setProducts(productData);
-        // add order data to state array
-        setOrders(orderData);
       } catch (error) {
         // set loading flag to false now that api call is completed
         setLoading(false);
@@ -71,7 +60,7 @@ const App = () => {
         <h3>{product.name}</h3>
         <p>${product.price}</p>
         <Popup trigger={<button>details</button>} position="center center">
-          <div><img src={require(`../../${product.imageName}${imageSuffix}`)} width='188px' alt='product' /></div>
+          <div><img src={require(`../../${product.imageName}${imageSuffix}`)} style={{width: '188px', height: '222px', objectFit: 'cover'}} alt='product' /></div>
           <div>{product.description}</div>
         </Popup>
       </div>
@@ -85,8 +74,10 @@ const App = () => {
         <h3>{product.name}</h3>
         <p>{product.description}</p>
         <p>${product.price}</p>
-        <p>{product.productImageURL}</p>
-        <button onClick={toggleProductDetail}>OK</button>
+        <Popup trigger={<button>details</button>} position="center center">
+          <div>{product.description}</div>
+          <div><img src={require(`../../${product.imageName}${imageSuffix}`)} style={{width: '188px', height: '222px', objectFit: 'cover'}} alt='product' /></div>
+        </Popup>
       </div>
     </Card>)
   );
@@ -98,22 +89,13 @@ const App = () => {
         <h3>{product.name}</h3>
         <p>{product.description}</p>
         <p>${product.price}</p>
-        <button>details</button>
+        <Popup trigger={<button>details</button>} position="center center">
+          <div><img src={require(`../../${product.imageName}${imageSuffix}`)} style={{width: '188px', height: '222px', objectFit: 'cover'}} alt='product' /></div>
+          <div>{product.description}</div>
+        </Popup>
       </div>
     </Card>)
   );
-
-  // function to create a Card component for each order that displays the total price
-  const createOrderCards = () => orders.map(order => (
-    <Card className='card' key={order.id}>
-      <div className='container'>
-        <p>#{order.id}</p>
-        <p>product ID: {order.items.productId} | qty: {order.items.quantity}</p>
-        <h3>order total ${order.orderTotal}</h3>
-      </div>
-    </Card>)
-  );
-
  
   return (
     <>
