@@ -1,14 +1,28 @@
+.detailsContainer {
+  position: relative;
+}
 
-.container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
+.image {
+  left: 0;
+  top: 0;
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
+}
+
+.text {
+  z-index: 100;
+  line-height: 96%;
+  position: absolute;
+  color: whitesmoke;
+  text-align: right;
+  text-shadow: -.1px .1px 3px rgb(21, 12, 6);
+  font-size: 32px;
+  font-weight: bold;
+  left: .5em;
+  top: .25em;
 }
 
 button {

@@ -11,7 +11,7 @@ a {
 }
 
 a:hover {
-  text-shadow: 1px 1px 1px lightblue;
+  text-shadow: .1px .1px .5px black;
 }
 
 body {

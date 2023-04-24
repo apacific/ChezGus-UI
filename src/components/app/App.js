@@ -55,13 +55,15 @@ const App = () => {
 
   // function to create a Card component for each product that displays the name, price, and description
   const createFoodCards = () => products.filter(product => product.type==="food").map(product => (
-    <Card className='card' key={product.id} data-type={product.type}>
-      <div className='container'>
+    <Card key={product.id} data-type={product.type}>
+      <div>
         <h3>{product.name}</h3>
-        <p>${product.price}</p>
         <Popup trigger={<button>details</button>} position="center center">
-          <div><img src={require(`../../${product.imageName}${imageSuffix}`)} style={{width: '188px', height: '222px', objectFit: 'cover'}} alt='product' /></div>
-          <div>{product.description}</div>
+          <div>
+            <div className={styles.text}>
+            <p style={{"marginBottom": "-20px"}}>{product.description}</p><p>${product.price}</p></div>
+            <div className={styles.image}><img src={require(`../../${product.imageName}${imageSuffix}`)} style={{ width: '188px', height: '222px', objectFit: 'cover' }} alt='product' /></div>
+          </div>
         </Popup>
       </div>
     </Card>)
@@ -69,14 +71,15 @@ const App = () => {
 
   // function to create a Card component for each product that displays the name, price, and description
   const createDessertCards = () => products.filter(product => product.type==="dessert").map(product => (
-    <Card className='card' key={product.id} data-type={product.type}>
-      <div className='container'>
+    <Card key={product.id} data-type={product.type}>
+      <div>
         <h3>{product.name}</h3>
-        <p>{product.description}</p>
-        <p>${product.price}</p>
         <Popup trigger={<button>details</button>} position="center center">
-          <div>{product.description}</div>
-          <div><img src={require(`../../${product.imageName}${imageSuffix}`)} style={{width: '188px', height: '222px', objectFit: 'cover'}} alt='product' /></div>
+          <div>
+            <div className={styles.text}>
+            <p style={{"marginBottom": "-20px"}}>{product.description}</p><p>${product.price}</p></div>
+            <div className={styles.image}><img src={require(`../../${product.imageName}${imageSuffix}`)} style={{ width: '188px', height: '222px', objectFit: 'cover' }} alt='product' /></div>
+          </div>
         </Popup>
       </div>
     </Card>)
@@ -84,14 +87,15 @@ const App = () => {
 
   // function to create a Card component for each product that displays the name, price, and description
   const createBeverageCards = () => products.filter(product => product.type==="beverage").map(product => (
-    <Card className='card' key={product.id}>
-      <div className='container'>
+    <Card key={product.id} data-type={product.type}>
+      <div>
         <h3>{product.name}</h3>
-        <p>{product.description}</p>
-        <p>${product.price}</p>
         <Popup trigger={<button>details</button>} position="center center">
-          <div><img src={require(`../../${product.imageName}${imageSuffix}`)} style={{width: '188px', height: '222px', objectFit: 'cover'}} alt='product' /></div>
-          <div>{product.description}</div>
+          <div>
+            <div className={styles.text}>
+              <p style={{"marginBottom": "-20px"}}>{product.description}</p><p>${product.price}</p></div>
+            <div className={styles.image}><img src={require(`../../${product.imageName}${imageSuffix}`)} style={{ width: '188px', height: '222px', objectFit: 'cover' }} alt='product' /></div>
+          </div>
         </Popup>
       </div>
     </Card>)
@@ -110,8 +114,8 @@ const App = () => {
           <Route
             path="/"
             element={
-              <div className={styles.row}>
-                <img src={Picture} alt='sunset' width="1100" height="1700"/>
+              <div  style={{ "textAlign": "center" }}>
+                <img src={Picture} alt='sunset' width="65%" height="65%" />
               </div>}>
           </Route>
           <Route
