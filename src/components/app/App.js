@@ -5,7 +5,6 @@ import styles from './App.module.css';
 import Card from '../card/Card';
 import Modal from '../modal/Modal';
 import NavBar from '../navbar/NavBar';
-import Picture from '../../sunset.jpg';
 import Spinner from '../spinner/Spinner';
 
 const App = () => {
@@ -112,11 +111,7 @@ const App = () => {
         {/* run functions to create Card components */}
         <Routes>
           <Route
-            path="/"
-            element={
-              <div  style={{ "textAlign": "center" }}>
-                <img src={Picture} alt='sunset' width="65%" height="65%" />
-              </div>}>
+            path="/">
           </Route>
           <Route
             path="/food"

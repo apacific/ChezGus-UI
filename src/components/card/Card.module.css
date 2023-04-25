@@ -1,13 +1,14 @@
 .card {
-  background-color: lightgray;
+  background-color: transparent;
   border-radius: 4px;
-  box-shadow: .1px 1px .1px 1px rgba(0, 0, 0, 0.2);
-  color: #1b3e77;
+  box-shadow: none;
+  color: white;
   display: flex;
   flex-direction: row;
   justify-content: center;
   margin: 16px;
   padding: 12px;
   text-align: center;
+  text-shadow: 1px 1px .5px black;
   width: 250px;
 }
