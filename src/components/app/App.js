@@ -62,7 +62,7 @@ const App = () => {
           <div>
             <div className={styles.text}>
             <p style={{"marginBottom": "-20px"}}>{product.description}</p><p>${product.price}</p></div>
-            <div className={styles.image}><img src={require(`../../${product.imageName}${imageSuffix}`)} style={{ width: '188px', height: '222px', objectFit: 'cover' }} alt='product' /></div>
+            <div className={styles.image}><img src={require(`../../../public/images/${product.imageName}${imageSuffix}`)} style={{ width: '188px', height: '222px', objectFit: 'cover' }} alt='product' /></div>
           </div>
         </Popup>
       </div>
@@ -78,7 +78,7 @@ const App = () => {
           <div>
             <div className={styles.text}>
             <p style={{"marginBottom": "-20px"}}>{product.description}</p><p>${product.price}</p></div>
-            <div className={styles.image}><img src={require(`../../${product.imageName}${imageSuffix}`)} style={{ width: '188px', height: '222px', objectFit: 'cover' }} alt='product' /></div>
+            <div className={styles.image}><img src={require(`../../../public/images/${product.imageName}${imageSuffix}`)} style={{ width: '188px', height: '222px', objectFit: 'cover' }} alt='product' /></div>
           </div>
         </Popup>
       </div>
@@ -94,7 +94,7 @@ const App = () => {
           <div>
             <div className={styles.text}>
               <p style={{"marginBottom": "-20px"}}>{product.description}</p><p>${product.price}</p></div>
-            <div className={styles.image}><img src={require(`../../${product.imageName}${imageSuffix}`)} style={{ width: '188px', height: '222px', objectFit: 'cover' }} alt='product' /></div>
+            <div className={styles.image}><img src={require(`../../../public/images/${product.imageName}${imageSuffix}`)} style={{ width: '188px', height: '222px', objectFit: 'cover' }} alt='product' /></div>
           </div>
         </Popup>
       </div>
