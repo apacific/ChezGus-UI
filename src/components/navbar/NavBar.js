@@ -3,7 +3,7 @@ import './NavBar.module.css';
 const NavBar = () => {
   return <nav className="nav">
     <div className="site-title">
-      <a href="/">the Gus Cafe</a>
+      <a href="/">The Gus Café</a>
     </div>
     <ul>
       <li>

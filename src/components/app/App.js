@@ -6,6 +6,7 @@ import Card from '../card/Card';
 import Modal from '../modal/Modal';
 import NavBar from '../navbar/NavBar';
 import Spinner from '../spinner/Spinner';
+import '../../assets/fonts/Inter-VariableFont_slnt,wght.ttf'
 
 const App = () => {
   // state and update function for our products data

@@ -1,3 +1,15 @@
+@font-face {
+  font-family: "Inter";
+  src: local("Inter"),
+   url("../../assets/fonts/static/Inter-Light.ttf") format("truetype");
+  font-weight: bold;
+}
+  
+* {
+  font-family: "Inter";
+  font-weight: bold;
+}
+
 .detailsContainer {
   position: relative;
 }
@@ -9,7 +21,6 @@
 
 .row {
   display: flex;
-  flex-wrap: wrap;
 }
 
 .text {
@@ -18,11 +29,11 @@
   position: absolute;
   color: whitesmoke;
   text-align: right;
-  text-shadow: -.1px .1px 3px rgb(21, 12, 6);
+  text-shadow: -.1px .1px 6px black;
   font-size: 32px;
   font-weight: bold;
-  left: .5em;
-  top: .25em;
+  left: .75em;
+  top: 1.75em;
 }
 
 body {
@@ -37,5 +48,6 @@ button {
   border-radius: .25rem;
   color: white;
   font-weight: bold;
-  padding: .75rem;
+  padding: .25rem;
+  text-shadow: 1px 1px .1px black;
 }

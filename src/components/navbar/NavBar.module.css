@@ -1,18 +1,13 @@
-* {
-  box-sizing: border-box;
-  font-family: sans-serif;
-}
-
 a {
-  color: white;
+  color: wheat;
   font-size: 2em;
-  font-weight: bold;
   text-decoration: none;
-  text-shadow: .1px .1px 5px gray;
+  text-shadow: .1px .1px 5px darkgoldenrod;
 }
 
 a:hover {
-  text-shadow: .1px .1px .5px black;
+  color: white;
+  text-shadow: .1px .1px 3px black;
 }
 
 body {
