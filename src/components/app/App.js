@@ -103,7 +103,9 @@ const App = () => {
  
   return (
     <>
-      <NavBar></NavBar>
+      <div className={styles.header}>
+        <NavBar />
+      </div>
       <div className={styles.container}>
         {/* if loading is true, display the spinner component */}
         {loading && <Spinner />}
